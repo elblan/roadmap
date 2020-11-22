@@ -17,9 +17,9 @@
       <div
         class="list-group-item item"
         v-for="element in this.list"
-        :key="element.name"
+        :key="element.id"
       >
-        {{ element.name }}
+        <kanban-card :element="element"></kanban-card>
       </div>
     </draggable>
     <div
@@ -38,11 +38,14 @@
 
 <script>
 import draggable from 'vuedraggable'
+import KanbanCard from '@/components/KanbanCard'
+
 let id = 1
 export default {
   name: 'KanbanColumn',
   components: {
-    draggable
+    draggable,
+    KanbanCard
   },
   props: {
     title: String,
@@ -56,7 +59,12 @@ export default {
   },
   methods: {
     add: function() {
-      this.columnList.push({ name: 'Item ' + id, id: id++ })
+      this.columnList.push({
+        name: 'Item ' + id,
+        description: 'This is a description',
+        votes: 0,
+        id: id++
+      })
     }
   },
   computed: {
@@ -85,7 +93,7 @@ h2 {
 }
 
 .column {
-  background: #5e60ce;
+  background: #6930c3;
   margin: 1rem;
   padding: 1rem;
   min-width: 250px;
@@ -98,7 +106,7 @@ h2 {
   background: white;
   margin: 0.5rem;
   border-radius: 4px;
-  height: 35px;
+  min-height: 35px;
   box-shadow: 7px 7px 9px -4px rgba(196, 151, 196, 0.99);
   transition: box-shadow 0.5s;
 
