@@ -22,7 +22,7 @@ export default {
           name: 'Firebase Authentication',
           description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
-          votes: 0,
+          votes: 3,
           id: 0
         },
         {
@@ -36,7 +36,7 @@ export default {
           name: 'Voter verification',
           description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-          votes: 0,
+          votes: 2,
           id: 2
         }
       ],
@@ -45,14 +45,14 @@ export default {
           name: 'Add and Manage description',
           description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-          votes: 0,
+          votes: 5,
           id: 3
         },
         {
           name: 'Vote system',
           description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          votes: 0,
+          votes: 12,
           id: 4
         }
       ],
@@ -68,7 +68,7 @@ export default {
           name: 'Card layout',
           description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          votes: 0,
+          votes: 9,
           id: 6
         }
       ],

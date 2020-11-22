@@ -25,6 +25,36 @@
         {{ this.element.description }}
       </p>
     </transition>
+    <div class="votes">
+      <button
+        v-if="!hasVoted"
+        class="button is-small"
+        @click="
+          voteCount += 1
+          hasVoted = true
+        "
+        style="background-color:#72efdd"
+      >
+        <span class="icon is-small">
+          <i class="far fa-user"></i>
+        </span>
+        <span>{{ voteCount }}</span>
+      </button>
+      <button
+        v-if="hasVoted"
+        class="button is-small"
+        @click="
+          voteCount -= 1
+          hasVoted = false
+        "
+        style="background-color:#56cfe1;"
+      >
+        <span class="icon is-small">
+          <i class="fas fa-user-check"></i>
+        </span>
+        <span>{{ voteCount }}</span>
+      </button>
+    </div>
   </div>
 </template>
 
@@ -37,7 +67,9 @@ export default {
   data() {
     return {
       expanded: false,
-      hover: false
+      hover: false,
+      hasVoted: false,
+      voteCount: this.element.votes
     }
   }
 }
@@ -64,5 +96,9 @@ h3 {
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
+}
+
+.votes {
+  text-align: right;
 }
 </style>

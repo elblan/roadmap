@@ -2,18 +2,19 @@
 
 ## TODOs
 
-Short term:
+**Short term**:
 
+- Vuex support
 - Firebase linking
 - Create smaller components
 - New card layout
 - Edit card
 - Vote functionality
 
-Long Term:
+**Long Term**:
 
 - Authentication
-- Limit vote to 1 per card per user
+- Store voting information
 - Swimlanes
 
 ## Project setup
