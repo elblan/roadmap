@@ -1,4 +1,4 @@
-# roadmappy
+# roadmap
 
 ## TODOs
 

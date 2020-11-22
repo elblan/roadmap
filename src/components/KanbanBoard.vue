@@ -1,150 +1,39 @@
 <template>
   <div class="board">
-    <div class="column">
-      <h2 class="subtitle is-size-4 has-text-weight-bold">
-        Backlog
-      </h2>
-
-      <draggable
-        id="first"
-        :list="list"
-        class="list-group"
-        draggable=".item"
-        group="card"
-        v-bind="dragOptions"
-        @start="drag = true"
-        @end="drag = false"
-      >
-        <div
-          class="list-group-item item"
-          v-for="element in list"
-          :key="element.name"
-        >
-          {{ element.name }}
-        </div>
-      </draggable>
-      <div style="margin-left:auto; margin-top: 1rem;">
-        <button class="button" @click="add" style="background-color:#72efdd;">
-          <span class="icon is-small">
-            <i class="fa fa-plus"></i>
-          </span>
-          <span>Add Item</span>
-        </button>
-      </div>
-    </div>
-
-    <div class="column">
-      <h2 class="subtitle is-size-4 has-text-weight-bold">To Do</h2>
-
-      <draggable
-        :list="list2"
-        class="list-group"
-        draggable=".item"
-        group="card"
-        v-bind="dragOptions"
-        @start="drag = true"
-        @end="drag = false"
-      >
-        <div
-          class="list-group-item item"
-          v-for="element in list2"
-          :key="element.name"
-        >
-          {{ element.name }}
-        </div>
-      </draggable>
-    </div>
-    <div class="column">
-      <h2 class="subtitle is-size-4 has-text-weight-bold">In Progress</h2>
-
-      <draggable
-        :list="list3"
-        class="list-group"
-        draggable=".item"
-        group="card"
-        v-bind="dragOptions"
-        @start="drag = true"
-        @end="drag = false"
-      >
-        <div
-          class="list-group-item item"
-          v-for="element in list3"
-          :key="element.name"
-        >
-          {{ element.name }}
-        </div>
-      </draggable>
-    </div>
-    <div class="column">
-      <h2 class="subtitle is-size-4 has-text-weight-bold">Done</h2>
-
-      <draggable
-        :list="list4"
-        class="list-group"
-        draggable=".item"
-        group="card"
-        v-bind="dragOptions"
-        @start="drag = true"
-        @end="drag = false"
-      >
-        <div
-          class="list-group-item item"
-          v-for="element in list4"
-          :key="element.name"
-        >
-          {{ element.name }}
-        </div>
-      </draggable>
-    </div>
+    <kanban-column title="Backlog" :list="backlog"></kanban-column>
+    <kanban-column title="Planned" :list="planned"></kanban-column>
+    <kanban-column title="In Progress" :list="inProgress"></kanban-column>
+    <kanban-column title="Done" :list="done"></kanban-column>
   </div>
 </template>
 
 <script>
-import draggable from 'vuedraggable'
-let id = 1
+import KanbanColumn from '@/components/KanbanColumn'
+
 export default {
-  name: 'two-list-headerslots',
-  display: 'Two list header slot',
+  name: 'KanbanBoard',
   components: {
-    draggable
+    KanbanColumn
   },
   data() {
     return {
-      drag: false,
-      list: [
+      backlog: [
         { name: 'John 1', id: 0 },
         { name: 'Joao 2', id: 1 },
         { name: 'Jean 3', id: 2 }
       ],
-      list2: [
+      planned: [
         { name: 'Jonny 4', id: 3 },
         { name: 'Guisepe 5', id: 4 }
       ],
-      list3: [
+      inProgress: [
         { name: 'Jonn123y 4', id: 5 },
         { name: 'Guisepe 532', id: 6 }
       ],
-      list4: [
+      done: [
         { name: 'Jon12ny 4', id: 7 },
         { name: 'Guise44444pe 52', id: 8 }
       ]
-    }
-  },
-  methods: {
-    add: function() {
-      this.list.push({ name: 'Item ' + id, id: id++ })
-    }
-  },
-  computed: {
-    dragOptions() {
-      return {
-        animation: 200,
-        group: 'description',
-        disabled: false,
-        ghostClass: 'ghost',
-        chosenClass: 'chosen',
-        dragClass: 'drag'
-      }
     }
   }
 }
