@@ -6,7 +6,6 @@
 
 - Vuex support
 - Firebase linking
-- Create smaller components
 - New card layout
 - Edit card
 - Vote functionality
@@ -33,6 +32,12 @@ npm run serve
 
 ```
 npm run build
+```
+
+### Deploy Github Pages
+
+```
+source deploy.sh
 ```
 
 ### Lints and fixes files
