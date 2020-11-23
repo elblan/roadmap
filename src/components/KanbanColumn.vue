@@ -93,7 +93,7 @@ h2 {
 }
 
 .column {
-  background: #6930c3;
+  background: #5390d9;
   margin: 1rem;
   padding: 1rem;
   min-width: 250px;
@@ -120,7 +120,7 @@ h2 {
 .list-group {
   padding: 20px 0;
   border-radius: 4px;
-  background-color: #72efdd;
+  background-color: #48bfe3;
 }
 
 .list-group-item {
