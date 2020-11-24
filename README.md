@@ -1,6 +1,6 @@
 # roadmap
 
-Running on github pages here: https://etienneleblan.github.io/roadmap/kanban
+Running on github pages here: https://etienneleblan.github.io/roadmap
 
 ## TODOs
 
