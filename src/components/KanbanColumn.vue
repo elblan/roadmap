@@ -6,7 +6,7 @@
 
     <draggable
       id="first"
-      :list="this.list"
+      :list="this.listData[this.listName]"
       class="list-group"
       draggable=".item"
       group="card"
@@ -16,7 +16,7 @@
     >
       <div
         class="list-group-item item"
-        v-for="element in this.list"
+        v-for="element in this.listData[this.listName]"
         :key="element.id"
       >
         <kanban-card :element="element"></kanban-card>
@@ -38,6 +38,7 @@
 
 <script>
 import draggable from 'vuedraggable'
+import store from '../store.js'
 import KanbanCard from '@/components/KanbanCard'
 
 let id = 1
@@ -49,12 +50,13 @@ export default {
   },
   props: {
     title: String,
-    list: Array
+    listId: String
   },
   data() {
     return {
       drag: false,
-      columnList: this.list
+      listName: this.listId,
+      listData: store.lists
     }
   },
   methods: {

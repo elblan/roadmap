@@ -8,7 +8,7 @@
       <h3 class="is-size-5 has-text-weight-bold">
         {{ this.element.name }}
       </h3>
-      <div class="expand" style="">
+      <div class="expand" style="opacity: 0.5;">
         <button
           class="button is-small"
           @click="expanded = !expanded"
@@ -66,7 +66,7 @@ export default {
   },
   data() {
     return {
-      expanded: false,
+      expanded: true,
       hover: false,
       hasVoted: false,
       voteCount: this.element.votes

@@ -4,8 +4,9 @@
 
 **Short term**:
 
-- Vuex support
-- Firebase linking
+- simple store
+- Vuex support?
+- Firebase
 - New card layout
 - Edit card
 - Vote functionality
