@@ -1,5 +1,7 @@
 # roadmap
 
+Running on github pages here: https://etienneleblan.github.io/roadmap
+
 ## TODOs
 
 **Short term**:
