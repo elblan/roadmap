@@ -1,13 +1,13 @@
 <template>
   <div class="column">
     <h2 class="subtitle is-size-4 has-text-weight-bold">
-      {{ this.title }}
+      {{ title }}
     </h2>
 
     <draggable
       id="first"
-      :list="this.listData[this.listName]"
       class="list-group"
+      v-model="cards"
       draggable=".item"
       group="card"
       v-bind="dragOptions"
@@ -16,7 +16,7 @@
     >
       <div
         class="list-group-item item"
-        v-for="element in this.listData[this.listName]"
+        v-for="element in cards"
         :key="element.id"
       >
         <kanban-card :element="element"></kanban-card>
@@ -38,7 +38,7 @@
 
 <script>
 import draggable from 'vuedraggable'
-import store from '../store.js'
+import store from '@/store/index.js'
 import KanbanCard from '@/components/KanbanCard'
 
 let id = 1
@@ -55,7 +55,6 @@ export default {
   data() {
     return {
       drag: false,
-      listName: this.listId,
       listData: store.lists
     }
   },
@@ -70,6 +69,14 @@ export default {
     }
   },
   computed: {
+    cards: {
+      get() {
+        return store.getters.getCardsByColumn(this.listId)
+      },
+      set(value) {
+        this.$store.dispatch('updateColumn', { listName: this.listId, value })
+      }
+    },
     dragOptions() {
       return {
         animation: 200,

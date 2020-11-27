@@ -1,35 +1,36 @@
 import Vue from 'vue'
 
 export default Vue.observable({
-  lists: {
-    backlog: [
+  lists: [
       {
         name: 'Firebase Authentication',
         description:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
         votes: 3,
-        id: 0
+        id: 0,
+        column: 'backlog'
       },
       {
         name: 'Settings',
         description:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
         votes: 0,
+        column: 'backlog',
         id: 1
       },
       {
         name: 'Voter verification',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         votes: 2,
+        column: 'backlog',
         id: 2
-      }
-    ],
-    planned: [
+      },
       {
         name: 'Add and Manage description',
         description:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
         votes: 5,
+        column: 'planned',
         id: 3
       },
       {
@@ -37,15 +38,15 @@ export default Vue.observable({
         description:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         votes: 12,
+        column: 'planned',
         id: 4
       }
-    ],
-    inProgress: [
       {
         name: 'Expand list',
         description:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
         votes: 0,
+        column: 'inProgress',
         id: 5
       },
       {
@@ -53,24 +54,25 @@ export default Vue.observable({
         description:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         votes: 9,
+        column: 'inProgress',
         id: 6
-      }
-    ],
-    done: [
+      },
       {
         name: 'App foundations',
         description:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
         votes: 0,
-        id: 7
+        id: 7,
+        column: 'done',
       },
       {
         name: 'Better component system',
         description:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.',
         votes: 0,
-        id: 8
+        id: 8,
+        column: 'done'
       }
-    ]
-  }
+    
+  ]
 })
