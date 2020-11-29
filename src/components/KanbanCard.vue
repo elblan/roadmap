@@ -6,7 +6,7 @@
   >
     <div class="card-head" style="display:flex; justify-content:space-between;">
       <h3 class="is-size-5 has-text-weight-bold">
-        {{ this.element.name }}
+        {{ card.name }}
       </h3>
       <div class="expand" style="opacity: 0.5;">
         <button
@@ -22,37 +22,32 @@
     </div>
     <transition name="fade">
       <p v-show="expanded">
-        {{ this.element.description }}
+        {{ card.description }}
       </p>
+      ,
     </transition>
     <div class="votes">
       <button
-        v-if="!hasVoted"
+        v-if="!userHasVoted"
         class="button is-small"
-        @click="
-          voteCount += 1
-          hasVoted = true
-        "
+        @click="updateCardVotes('increase')"
         style="background-color:#72efdd"
       >
         <span class="icon is-small">
           <i class="far fa-user"></i>
         </span>
-        <span>{{ voteCount }}</span>
+        <span>{{ card.votes }}</span>
       </button>
       <button
-        v-if="hasVoted"
+        v-if="userHasVoted"
         class="button is-small"
-        @click="
-          voteCount -= 1
-          hasVoted = false
-        "
+        @click="updateCardVotes('decrease')"
         style="background-color:#56cfe1;"
       >
         <span class="icon is-small">
           <i class="fas fa-user-check"></i>
         </span>
-        <span>{{ voteCount }}</span>
+        <span>{{ card.votes }}</span>
       </button>
     </div>
   </div>
@@ -60,19 +55,40 @@
 
 <script>
 export default {
-  name: 'KanbanCard',
+  name: "KanbanCard",
   props: {
-    element: Object
+    cardId: {
+      type: Number,
+    },
+    listId: {
+      type: String,
+    },
   },
   data() {
     return {
       expanded: true,
       hover: false,
       hasVoted: false,
-      voteCount: this.element.votes
-    }
-  }
-}
+    };
+  },
+  methods: {
+    updateCardVotes(action) {
+      this.$store.dispatch("updateCardVotes", {
+        action,
+        listId: this.listId,
+        cardId: this.cardId,
+      });
+    },
+  },
+  computed: {
+    card() {
+      return this.$store.getters.getCardById(this.listId, this.cardId);
+    },
+    userHasVoted() {
+      return this.$store.getters.userHasVoted(this.cardId);
+    },
+  },
+};
 </script>
 
 <style scoped lang="scss">
