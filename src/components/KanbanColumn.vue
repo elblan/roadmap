@@ -6,8 +6,8 @@
 
     <draggable
       id="first"
-      class="list-group"
       v-model="cards"
+      class="list-group"
       draggable=".item"
       group="card"
       v-bind="dragOptions"
@@ -15,18 +15,18 @@
       @end="drag = false"
     >
       <div
-        class="list-group-item item"
         v-for="element in cards"
         :key="element.id"
+        class="list-group-item item"
       >
-        <kanban-card :listId="listId" :cardId="element.id"></kanban-card>
+        <kanban-card :list-id="listId" :card-id="element.id"></kanban-card>
       </div>
     </draggable>
     <div
       v-if="this.title == 'Backlog'"
       style="margin-left:auto; margin-top: 1rem;"
     >
-      <button class="button" @click="add" style="background-color:#72efdd;">
+      <button class="button" style="background-color:#72efdd;" @click="add">
         <span class="icon is-small">
           <i class="fa fa-plus"></i>
         </span>
@@ -37,61 +37,61 @@
 </template>
 
 <script>
-import draggable from "vuedraggable";
-import store from "@/store/index.js";
-import KanbanCard from "@/components/KanbanCard";
+import draggable from 'vuedraggable'
+import store from '@/store/index.js'
+import KanbanCard from '@/components/KanbanCard'
 
-let id = 1;
+let id = 1
 export default {
-  name: "KanbanColumn",
+  name: 'KanbanColumn',
   components: {
     draggable,
-    KanbanCard,
+    KanbanCard
   },
   props: {
     title: String,
-    listId: String,
+    listId: String
   },
   data() {
     return {
       drag: false,
-      listData: store.lists,
-    };
-  },
-  methods: {
-    add: function() {
-      this.columnList.push({
-        name: "Item " + id,
-        description: "This is a description",
-        votes: 0,
-        id: id++,
-      });
-    },
+      listData: store.lists
+    }
   },
   computed: {
     cards: {
       get() {
-        return store.getters.getCardsByColumn(this.listId);
+        return store.getters.getCardsByColumn(this.listId)
       },
       set(value) {
-        this.$store.dispatch("updateCards", {
+        this.$store.dispatch('updateCards', {
           listId: this.listId,
-          newList: value,
-        });
-      },
+          newList: value
+        })
+      }
     },
     dragOptions() {
       return {
         animation: 200,
-        group: "description",
+        group: 'description',
         disabled: false,
-        ghostClass: "ghost",
-        chosenClass: "chosen",
-        dragClass: "drag",
-      };
-    },
+        ghostClass: 'ghost',
+        chosenClass: 'chosen',
+        dragClass: 'drag'
+      }
+    }
   },
-};
+  methods: {
+    add: function() {
+      this.columnList.push({
+        name: 'Item ' + id,
+        description: 'This is a description',
+        votes: 0,
+        id: id++
+      })
+    }
+  }
+}
 </script>
 
 <style scoped lang="scss">

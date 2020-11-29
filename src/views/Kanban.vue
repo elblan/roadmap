@@ -12,7 +12,7 @@ import KanbanBoard from "@/components/KanbanBoard.vue";
 export default {
   name: "Kanban",
   components: {
-    KanbanBoard,
-  },
+    KanbanBoard
+  }
 };
 </script>

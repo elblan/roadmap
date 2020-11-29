@@ -55,40 +55,40 @@
 
 <script>
 export default {
-  name: "KanbanCard",
+  name: 'KanbanCard',
   props: {
     cardId: {
-      type: Number,
+      type: Number
     },
     listId: {
-      type: String,
-    },
+      type: String
+    }
   },
   data() {
     return {
       expanded: true,
       hover: false,
-      hasVoted: false,
-    };
+      hasVoted: false
+    }
   },
   methods: {
     updateCardVotes(action) {
-      this.$store.dispatch("updateCardVotes", {
+      this.$store.dispatch('updateCardVotes', {
         action,
         listId: this.listId,
-        cardId: this.cardId,
-      });
-    },
+        cardId: this.cardId
+      })
+    }
   },
   computed: {
     card() {
-      return this.$store.getters.getCardById(this.listId, this.cardId);
+      return this.$store.getters.getCardById(this.listId, this.cardId)
     },
     userHasVoted() {
-      return this.$store.getters.userHasVoted(this.cardId);
-    },
-  },
-};
+      return this.$store.getters.userHasVoted(this.cardId)
+    }
+  }
+}
 </script>
 
 <style scoped lang="scss">
