@@ -6,17 +6,14 @@ Running on github pages here: https://elblan.github.io/roadmap
 
 **Short term**:
 
-- simple store
-- Vuex support?
 - Firebase
 - New card layout
 - Edit card
-- Vote functionality
 
 **Long Term**:
 
 - Authentication
-- Store voting information
+- Board management
 - Swimlanes
 
 ## Project setup
