@@ -123,7 +123,7 @@ h2 {
   transition: box-shadow 0.5s;
 
   &:hover {
-    box-shadow: 10px 10px 9px -4px rgba(196, 151, 196, 0.99);
+    box-shadow: 10px 10px 9px -4px rgba(153, 107, 153, 0.59);
   }
 }
 

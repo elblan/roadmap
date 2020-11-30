@@ -6,12 +6,10 @@ Running on github pages here: https://elblan.github.io/roadmap
 
 **Short term**:
 
-- simple store
-- Vuex support?
+- nuxt?
+- Add / Edit card
 - Firebase
 - New card layout
-- Edit card
-- Vote functionality
 
 **Long Term**:
 

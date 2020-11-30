@@ -24,7 +24,6 @@
       <p v-show="expanded">
         {{ card.description }}
       </p>
-      ,
     </transition>
     <div class="votes">
       <button
@@ -99,7 +98,6 @@ h3 {
 .content-card {
   display: flex;
   flex-direction: column;
-
   padding: 1rem;
   text-align: left;
 }
