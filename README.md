@@ -6,15 +6,21 @@ Running on github pages here: https://elblan.github.io/roadmap
 
 **Short term**:
 
+<<<<<<< HEAD
+
 - nuxt?
 - Add / Edit card
 - Firebase
+- # New card layout
+- Firebase
 - New card layout
+- Edit card
+  > > > > > > > 0f34efe4ed8298697449bbd956d6bdc87f45164d
 
 **Long Term**:
 
 - Authentication
-- Store voting information
+- Board management
 - Swimlanes
 
 ## Project setup
