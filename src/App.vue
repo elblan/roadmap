@@ -4,9 +4,22 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/kanban">Kanban</router-link>
     </div>
+    <div id="auth">
+      <login></login>
+    </div>
     <router-view />
   </div>
 </template>
+<script>
+import Login from '@/components/Login'
+
+export default {
+  name: 'App',
+  components: {
+    Login
+  }
+}
+</script>
 
 <style>
 #app {

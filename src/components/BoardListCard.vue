@@ -33,7 +33,7 @@ export default {
   text-align: left;
   border-radius: 4px;
   min-height: 35px;
-  box-shadow: 7px 7px 9px -4px rgba(196, 151, 196, 0.99);
+  box-shadow: 7px 7px 9px -4px rgba(153, 107, 153, 0.99);
   transition: box-shadow 0.5s;
 
   &:hover {

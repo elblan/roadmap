@@ -7,12 +7,12 @@
 
 <script>
 // @ is an alias to /src
-import KanbanBoard from "@/components/KanbanBoard.vue";
+import KanbanBoard from '@/components/KanbanBoard.vue'
 
 export default {
-  name: "Kanban",
+  name: 'Kanban',
   components: {
     KanbanBoard
   }
-};
+}
 </script>
