@@ -58,7 +58,6 @@ export default {
   },
   mounted() {
     var uiConfig = {
-      signInSuccessUrl: '/',
       signInFlow: 'popup',
       signInOptions: [
         firebase.auth.EmailAuthProvider.PROVIDER_ID,
