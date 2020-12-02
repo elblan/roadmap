@@ -7,15 +7,16 @@ Running on github pages here: https://elblan.github.io/roadmap
 **Short term**:
 
 - nuxt?
+- proper header for auth / nav
 - Add / Edit card
-- Firebase
-- New card layout
+- Firebase auth on vuex
+- Firestore
 
 **Long Term**:
 
-- Authentication
 - Board management
 - Swimlanes
+- Vote analytics
 
 ## Project setup
 

@@ -1,6 +1,5 @@
 <template>
   <div class="Kanban">
-    <h1>This is where the Kanban board goes</h1>
     <KanbanBoard />
   </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
   <div class="column">
-    <h2 class="subtitle is-size-4 has-text-weight-bold">
+    <h2 class="subtitle is-size-4 has-text-weight-bold has-text-centered">
       {{ title }}
     </h2>
 

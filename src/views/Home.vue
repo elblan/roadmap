@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <h1 class="title">Welcome</h1>
     <board-list></board-list>
   </div>
 </template>
