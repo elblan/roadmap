@@ -1,27 +1,57 @@
 <template>
   <div>
-    <div v-if="!user" id="firebaseui-auth-container"></div>
-    <div v-else>
-      <div class="card">
-        <div class="card-image" style="margin-left: 1rem;">
-          <img
-            :src="user.photoURL"
-            style="width:75px;border-radius:50%;border:3px solid #333"
-          />
-        </div>
-        <div class="card-stacked">
-          <div class="card-content">
-            <p>
-              name: <strong>{{ user.displayName }}</strong
-              ><br />email:<strong>{{ user.email }}</strong
-              ><br />uid: <strong>{{ user.uid }}</strong> <br />provider:
-              <strong class="teal-text">{{
-                user.providerData[0].providerId
-              }}</strong>
-            </p>
+    <div class="dropdown is-hoverable is-right">
+      <div class="dropdown-trigger">
+        <button
+          class="button purple has-text-white"
+          aria-haspopup="true"
+          aria-controls="dropdown-menu2"
+        >
+          <span v-if="!user">Get In</span>
+          <span v-else>{{ user.displayName.replace(/ .*/, '') }}</span>
+          <span class="icon is-small">
+            <i class="fas fa-user" aria-hidden="true"></i>
+          </span>
+        </button>
+      </div>
+      <div class="dropdown-menu" id="dropdown-menu2" role="menu">
+        <div class="dropdown-content" style="min-width: 400px;">
+          <div class="dropdown-item">
+            <div v-if="!user" id="firebaseui-auth-container"></div>
+            <div v-else>
+              <div class="card">
+                <div class="card-image" style="margin-left: 1rem; ">
+                  <img
+                    :src="user.photoURL"
+                    style="min-height:75px;min-width:75px; border-radius:50%;border:3px solid #333"
+                  />
+                </div>
+                <div class="card-stacked">
+                  <div class="card-content">
+                    <p>
+                      name: <strong>{{ user.displayName }}</strong
+                      ><br />email:<strong>{{ user.email }}</strong
+                      ><br />uid: <strong>{{ user.uid }}</strong>
+                      <br />provider:
+                      <strong class="teal-text">{{
+                        user.providerData[0].providerId
+                      }}</strong>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <hr class="dropdown-divider" />
+              <div class="dropdown-item has-text-centered">
+                <button class="button is-danger" @click="logOut">
+                  <span class="icon">
+                    <i class="fas fa-sign-out-alt"></i>
+                  </span>
+                  <span>Log out</span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-        <button class="button is-danger" @click="logOut">Log out</button>
       </div>
     </div>
   </div>
@@ -84,5 +114,16 @@ export default {
 .login-wrapper {
   background-color: blue;
   height: 10px;
+}
+
+.purple {
+  background-color: #6930c3;
+  border-radius: 4px;
+  font-weight: 600;
+  color: white;
+  &:hover {
+    background-color: #7400b8;
+    color: white;
+  }
 }
 </style>
