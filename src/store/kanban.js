@@ -125,6 +125,10 @@ const kanban = {
     updateCardVotes({ commit }, payload) {
       commit('UPDATE_CARD_VOTES', payload)
       commit('UPDATE_USER_VOTES', payload)
+    },
+    async fetchBoards({ commit }) {
+      // const boardsDoc
+      commit()
     }
   }
 }

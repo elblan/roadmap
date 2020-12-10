@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 
 import firebase from 'firebase/app'
+import 'firebase/firestore'
 
 require('@/assets/main.scss')
 
@@ -20,6 +21,7 @@ const firebaseConfig = {
 }
 
 firebase.initializeApp(firebaseConfig)
+export const db = firebase.firestore()
 
 Vue.config.productionTip = false
 

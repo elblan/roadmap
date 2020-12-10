@@ -38,7 +38,7 @@
         <span>{{ card.votes }}</span>
       </button>
       <button
-        v-if="userHasVoted"
+        v-else
         class="button is-small"
         @click="updateCardVotes('decrease')"
         style="background-color:#56cfe1;"
@@ -53,6 +53,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'KanbanCard',
   props: {
@@ -80,6 +82,7 @@ export default {
     }
   },
   computed: {
+    ...mapGetters({ user: 'getUser' }),
     card() {
       return this.$store.getters.getCardById(this.listId, this.cardId)
     },

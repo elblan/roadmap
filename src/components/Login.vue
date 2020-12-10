@@ -62,14 +62,13 @@ import firebase from 'firebase/app'
 import 'firebase/auth'
 import * as firebaseui from 'firebaseui'
 import 'firebaseui/dist/firebaseui.css'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'Login',
   components: {},
-  data() {
-    return {
-      user: null
-    }
+  computed: {
+    ...mapGetters({ user: 'getUser' })
   },
   methods: {
     logOut(e) {
@@ -81,8 +80,8 @@ export default {
   created() {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        console.log(user)
-        this.user = user
+        this.$store.dispatch('setUser', { user })
+        this.$store.dispatch('fetchUserMetadata')
       }
     })
   },
