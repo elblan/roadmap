@@ -27,7 +27,7 @@
     </transition>
     <div class="votes">
       <button
-        v-if="!userHasVoted"
+        v-if="user && !userHasVoted"
         class="button is-small"
         @click="updateCardVotes('increase')"
         style="background-color:#72efdd"
@@ -38,13 +38,24 @@
         <span>{{ card.votes }}</span>
       </button>
       <button
-        v-else
+        v-else-if="user && userHasVoted"
         class="button is-small"
         @click="updateCardVotes('decrease')"
         style="background-color:#56cfe1;"
       >
         <span class="icon is-small">
           <i class="fas fa-user-check"></i>
+        </span>
+        <span>{{ card.votes }}</span>
+      </button>
+      <button
+        v-else-if="!user"
+        class="button is-small has-tooltip-warning has-tooltip-arrow has-tooltip-bottom"
+        data-tooltip="You need to log in order to vote."
+        style="background-color:lightgrey"
+      >
+        <span class="icon is-small">
+          <i class="far fa-user"></i>
         </span>
         <span>{{ card.votes }}</span>
       </button>
