@@ -25,7 +25,7 @@
         {{ card.description }}
       </p>
     </transition>
-    <div class="votes">
+    <div class="votes mt-2">
       <button
         v-if="user && !userHasVoted"
         class="button is-small"
